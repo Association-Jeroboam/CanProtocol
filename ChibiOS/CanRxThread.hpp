@@ -6,7 +6,7 @@
 
 typedef uint8_t listenerCount_t;
 
-constexpr uint16_t CAN_RX_WA = 0x100;
+constexpr uint16_t CAN_RX_WA = 0x80;
 constexpr listenerCount_t  CAN_RX_MAX_LISTENERS = 8;
 
 class CanRxThread : public chibios_rt::BaseStaticThread<CAN_RX_WA> {
