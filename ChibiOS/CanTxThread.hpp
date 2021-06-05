@@ -4,7 +4,7 @@
 #include "hal.h"
 #include "CanProtocol.hpp"
 
-constexpr uint16_t CAN_TX_WA = 0x80;
+constexpr uint16_t CAN_TX_WA = 0x100;
 constexpr uint16_t TX_QUEUE_LEN  = 10;
 constexpr uint16_t MSG_DATA_SIZE = sizeof(canFrame_t);
 

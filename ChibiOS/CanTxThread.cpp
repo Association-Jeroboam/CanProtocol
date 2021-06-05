@@ -13,6 +13,7 @@ CanTxThread::CanTxThread() {
 }
 
 void CanTxThread::main() {
+	Logging::println("[CAN TX] Thread start");
     setName("Can Tx");
 
     while (!shouldTerminate()) {
