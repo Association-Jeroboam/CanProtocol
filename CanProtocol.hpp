@@ -30,9 +30,26 @@ enum canFrameLen_e : uint8_t {
     CAN_CURRENT_POSE_LEN       = 8,
 };
 
+enum pliersID : uint8_t {
+	PLIERS_FRONT_FAR_LEFT = 0,
+	PLIERS_FRONT_LEFT,
+	PLIERS_FRONT_RIGHT,
+	PLIERS_FRONT_FAR_RIGHT,
+	PLIERS_REAR_FAR_RIGHT,
+	PLIERS_REAR_RIGHT,
+	PLIERS_REAR_MIDDLE,
+	PLIERS_REAR_LEFT,
+	PLIERS_REAR_FAR_LEFT,
+};
+
+enum pliersState : uint8_t {
+	PLIERS_OPEN,
+	PLIERS_CLOSE,
+};
+
 struct pliersData {
-    uint8_t plierID;
-    uint8_t state;
+	enum pliersID plierID;
+	enum pliersState state;
 };
 
 struct slidersData {

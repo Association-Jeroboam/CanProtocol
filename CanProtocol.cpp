@@ -9,8 +9,8 @@ canFrame_t CanProtocol::createFrame(enum canFrameID_e ID, ...) {
         case CAN_PLIERS_ID:
             canData.len = CAN_PLIERS_LEN;
             canData.data.pliersData = {
-                .plierID = (uint8_t)va_arg(args, int),
-                .state   = (uint8_t)va_arg(args, int),
+                .plierID = (enum pliersID)va_arg(args, int),
+                .state   = (enum pliersState)va_arg(args, int),
             };
             break;
         case CAN_SLIDERS_ID: {
@@ -89,8 +89,8 @@ canFrame_t CanProtocol::decodeFrame(CANRxFrame frame){
     switch(frame.SID) {
         case CAN_PLIERS_ID             : {
             canData.ID = CAN_PLIERS_ID;
-            canData.data.pliersData.plierID = frame.data8[0];
-            canData.data.pliersData.state   = frame.data8[1];
+            canData.data.pliersData.plierID = (enum pliersID)frame.data8[0];
+            canData.data.pliersData.state   = (enum pliersState)frame.data8[1];
             break;
         }
         case CAN_SLIDERS_ID            : {
