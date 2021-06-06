@@ -50,6 +50,12 @@ canFrame_t CanProtocol::createFrame(enum canFrameID_e ID, ...) {
                 .blue = (uint8_t)va_arg(args, int),
             };
             break;
+        case CAN_PLIERS_BLOCK_ID:
+            canData.len = CAN_PLIERS_BLOCK_LEN;
+            canData.data.pliersBlockData = {
+                    .state = (uint8_t)va_arg(args, int),
+            };
+            break;
         case CAN_ACTION_IN_PROGRESS_ID:
             canData.len = CAN_ACTION_IN_PROGRESS_LEN;
             break;
@@ -122,6 +128,10 @@ canFrame_t CanProtocol::decodeFrame(CANRxFrame frame){
             canData.data.colorData.blue  = frame.data8[2];
             break;
         }
+        case CAN_PLIERS_BLOCK_ID:
+            canData.ID = CAN_PLIERS_BLOCK_ID;
+            canData.data.pliersBlockData.state = frame.data8[0];
+            break;
         case CAN_ACTION_IN_PROGRESS_ID : {
             canData.ID = CAN_ACTION_IN_PROGRESS_ID;
             break;
