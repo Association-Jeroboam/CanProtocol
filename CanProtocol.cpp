@@ -15,7 +15,7 @@ canFrame_t CanProtocol::createFrame(enum canFrameID_e ID, ...) {
             break;
         case CAN_SLIDERS_ID: {
             canData.len = CAN_SLIDERS_LEN;
-            uint8_t sliderID = va_arg(args, int);
+            enum sliderID sliderID = (enum sliderID)va_arg(args, int);
             uint16_t position = va_arg(args, int);
             canData.data.slidersData = {
                 .position = position,
@@ -48,6 +48,12 @@ canFrame_t CanProtocol::createFrame(enum canFrameID_e ID, ...) {
                 .red = (uint8_t)va_arg(args, int),
                 .green = (uint8_t)va_arg(args, int),
                 .blue = (uint8_t)va_arg(args, int),
+            };
+            break;
+        case CAN_PLIERS_BLOCK_ID:
+            canData.len = CAN_PLIERS_BLOCK_LEN;
+            canData.data.pliersBlockData = {
+                    .state = (uint8_t)va_arg(args, int),
             };
             break;
         case CAN_ACTION_IN_PROGRESS_ID:
@@ -96,7 +102,7 @@ canFrame_t CanProtocol::decodeFrame(CANRxFrame frame){
         case CAN_SLIDERS_ID            : {
             canData.ID = CAN_SLIDERS_ID;
             canData.data.slidersData.position = frame.data16[0];
-            canData.data.slidersData.sliderID = frame.data8[2];
+            canData.data.slidersData.sliderID = (enum sliderID)frame.data8[2];
             break;
         }
         case CAN_FLAG_ID               : {
@@ -122,6 +128,10 @@ canFrame_t CanProtocol::decodeFrame(CANRxFrame frame){
             canData.data.colorData.blue  = frame.data8[2];
             break;
         }
+        case CAN_PLIERS_BLOCK_ID:
+            canData.ID = CAN_PLIERS_BLOCK_ID;
+            canData.data.pliersBlockData.state = frame.data8[0];
+            break;
         case CAN_ACTION_IN_PROGRESS_ID : {
             canData.ID = CAN_ACTION_IN_PROGRESS_ID;
             break;

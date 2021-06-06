@@ -9,6 +9,7 @@ enum canFrameID_e {
     CAN_ARMS_ID               = 0x14,
     CAN_READ_COLOR_ID         = 0x15,
     CAN_COLOR_ID              = 0x16,
+    CAN_PLIERS_BLOCK_ID       = 0x17,
     CAN_ACTION_IN_PROGRESS_ID = 0x1E,
     CAN_ACTION_DONE_ID        = 0x1F,
     CAN_DISPLAY_POINTS_ID     = 0x20,
@@ -23,6 +24,7 @@ enum canFrameLen_e : uint8_t {
     CAN_ARMS_LEN               = 2,
     CAN_READ_COLOR_LEN         = 1,
     CAN_COLOR_LEN              = 3,
+    CAN_PLIERS_BLOCK_LEN       = 1,
     CAN_ACTION_IN_PROGRESS_LEN = 0,
     CAN_ACTION_DONE_LEN        = 0,
     CAN_DISPLAY_POINTS_LEN     = 2,
@@ -42,6 +44,11 @@ enum pliersID : uint8_t {
 	PLIERS_REAR_FAR_LEFT,
 };
 
+enum sliderID {
+    SLIDER_ELEVATOR,
+    SLIDER_TRANSLATION,
+};
+
 enum pliersState : uint8_t {
 	PLIERS_OPEN,
 	PLIERS_CLOSE,
@@ -54,7 +61,7 @@ struct pliersData {
 
 struct slidersData {
     uint16_t position;
-    uint8_t  sliderID;
+    enum sliderID sliderID;
 };
 
 struct flagData {
@@ -74,6 +81,10 @@ struct colorData {
     uint8_t red;
     uint8_t green;
     uint8_t blue;
+};
+
+struct pliersBlockData {
+    uint8_t state;
 };
 
 struct displayPointsData {
@@ -96,6 +107,7 @@ typedef struct {
         struct armData           armData;
         struct readColorData     readColorData;
         struct colorData         colorData;
+        struct pliersBlockData   pliersBlockData;
         struct displayPointsData displayPointsData;
         struct poseData          poseData;
     } data;
