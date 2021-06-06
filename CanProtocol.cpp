@@ -15,7 +15,7 @@ canFrame_t CanProtocol::createFrame(enum canFrameID_e ID, ...) {
             break;
         case CAN_SLIDERS_ID: {
             canData.len = CAN_SLIDERS_LEN;
-            uint8_t sliderID = va_arg(args, int);
+            enum sliderID sliderID = (enum sliderID)va_arg(args, int);
             uint16_t position = va_arg(args, int);
             canData.data.slidersData = {
                 .position = position,
@@ -96,7 +96,7 @@ canFrame_t CanProtocol::decodeFrame(CANRxFrame frame){
         case CAN_SLIDERS_ID            : {
             canData.ID = CAN_SLIDERS_ID;
             canData.data.slidersData.position = frame.data16[0];
-            canData.data.slidersData.sliderID = frame.data8[2];
+            canData.data.slidersData.sliderID = (enum sliderID)frame.data8[2];
             break;
         }
         case CAN_FLAG_ID               : {

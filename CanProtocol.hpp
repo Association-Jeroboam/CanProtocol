@@ -42,6 +42,11 @@ enum pliersID : uint8_t {
 	PLIERS_REAR_FAR_LEFT,
 };
 
+enum sliderID {
+    SLIDER_ELEVATOR,
+    SLIDER_TRANSLATION,
+};
+
 enum pliersState : uint8_t {
 	PLIERS_OPEN,
 	PLIERS_CLOSE,
@@ -54,7 +59,7 @@ struct pliersData {
 
 struct slidersData {
     uint16_t position;
-    uint8_t  sliderID;
+    enum sliderID sliderID;
 };
 
 struct flagData {
