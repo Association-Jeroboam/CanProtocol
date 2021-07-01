@@ -22,8 +22,9 @@ void CanTxThread::main() {
         CANTxFrame frame = buildFrame(*data);
         chFifoReturnObject(&pendingMessagesQueue, data);
         msg_t msg = canTransmitTimeout(&CAN_DRIVER, CAN_ANY_MAILBOX, &frame, TIME_MS2I(TIMEOUT_MS));
-        if(msg == MSG_TIMEOUT){
-            Logging::println("[CAN TX] Send timed out");
+
+        if(msg != MSG_OK){
+            Logging::println("[CAN TX] fail %lu", msg);
         }
         chThdSleep(TIME_US2I(THREAD_SLEEP_US));
     }
@@ -44,7 +45,7 @@ bool CanTxThread::send(canFrame_t frame){
 
 CANTxFrame CanTxThread::buildFrame(canFrame_t frameData) {
     CANTxFrame  canFrame;
-    canFrame.SID = frameData.ID;
+    canFrame.std.SID = frameData.ID;
     canFrame.DLC = frameData.len;
     memcpy(&canFrame.data8, &frameData.data, frameData.len);
     return canFrame;
