@@ -33,8 +33,8 @@ canFrame_t CanProtocol::createFrame(enum canFrameID_e ID, ...) {
         case CAN_ARMS_ID:
             canData.len = CAN_ARMS_LEN;
             canData.data.armData = {
-                .armID = (uint8_t)va_arg(args, int),
-                .state = (uint8_t)va_arg(args, int),
+                .armID = (enum armID)va_arg(args, int),
+                .state = (enum pliersState)va_arg(args, int),
             };
             break;
         case CAN_READ_COLOR_ID:
@@ -116,8 +116,8 @@ canFrame_t CanProtocol::decodeFrame(CANRxFrame frame){
         }
         case CAN_ARMS_ID               : {
             canData.ID =CAN_ARMS_ID;
-            canData.data.armData.armID = frame.data8[0];
-            canData.data.armData.state = frame.data8[1];
+            canData.data.armData.armID = (enum armID)frame.data8[0];
+            canData.data.armData.state = (enum pliersState)frame.data8[1];
             Logging::println("[CAN] rcv CAN_ARMS");
             break;
         }

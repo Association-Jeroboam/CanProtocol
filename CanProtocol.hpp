@@ -50,13 +50,18 @@ enum sliderID {
 };
 
 enum pliersState : uint8_t {
-	PLIERS_OPEN,
-	PLIERS_CLOSE,
+	PLIERS_IDLE,
+	PLIERS_ACTIVATED,
 };
 
 struct pliersData {
 	enum pliersID plierID;
 	enum pliersState state;
+};
+
+enum armID {
+    ARM_LEFT = 0,
+    ARM_RIGHT,
 };
 
 struct slidersData {
@@ -69,8 +74,8 @@ struct flagData {
 };
 
 struct armData {
-    uint8_t armID;
-    uint8_t state;
+    enum armID armID;
+    enum pliersState state;
 };
 
 struct readColorData {
