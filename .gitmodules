@@ -1,0 +1,6 @@
+[submodule "Cyphal/public_regulated_data_types"]
+	path = Cyphal/public_regulated_data_types
+	url = git@github.com:OpenCyphal/public_regulated_data_types.git
+[submodule "Cyphal/libcanard"]
+	path = Cyphal/libcanard
+	url = git@github.com:OpenCyphal/libcanard.git
