@@ -13,7 +13,7 @@ constexpr uint32_t THREAD_SLEEP_US = 30;
 constexpr uint32_t MSG_SEND_EVT    = 1;
 constexpr uint32_t MAX_FRAME_SIZE  = CANARD_MTU_CAN_CLASSIC;
 
-CanTxThread::CanTxThread():m_source(), m_listener() {
+CanTxThread::CanTxThread(CanardInstance* instance):m_source(), m_listener(), instance(instance) {
     instance = nullptr;
 }
 
@@ -27,10 +27,10 @@ void CanTxThread::main() {
     while (!shouldTerminate()) {
         eventmask_t event = waitOneEvent(MSG_SEND_EVT);
         if(event & MSG_SEND_EVT) {
-            if(instance) {
-                const CanardTxQueueItem* item          = canardTxPeek(&queue);
-                CanardTxQueueItem*       extractedItem = canardTxPop(&queue, item);
-                uint32_t                 size          = item->frame.payload_size;
+            const CanardTxQueueItem* item = canardTxPeek(&queue);
+            while(item != NULL) {
+                CanardTxQueueItem* extractedItem = canardTxPop(&queue, item);
+                uint32_t           size          = item->frame.payload_size;
                 do {
                     CANTxFrame frame;
                     frame.ext.EID = item->frame.extended_can_id;
@@ -51,8 +51,8 @@ void CanTxThread::main() {
                 } while (size > 0);
 
                 instance->memory_free(instance, extractedItem);
+                item = canardTxPeek(&queue);
             }
-
 
         }
         chThdSleep(TIME_US2I(THREAD_SLEEP_US));
