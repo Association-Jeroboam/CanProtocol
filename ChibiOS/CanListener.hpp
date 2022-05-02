@@ -1,7 +1,8 @@
 #pragma once
 #include "CanProtocol.hpp"
+#include "canard.h"
 
 class CanListener {
 public:
-    virtual void processFrame(canFrame_t frame) = 0;
+    virtual void processCanMsg(CanardRxTransfer * transfer) = 0;
 };

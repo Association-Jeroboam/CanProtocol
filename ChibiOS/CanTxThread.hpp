@@ -3,27 +3,27 @@
 #include "ch.hpp"
 #include "hal.h"
 #include "CanProtocol.hpp"
+#include "Cyphal/libcanard/libcanard/canard.h"
 
 constexpr uint16_t CAN_TX_WA = 0x100;
-constexpr uint16_t TX_QUEUE_LEN  = 10;
-constexpr uint16_t MSG_DATA_SIZE = sizeof(canFrame_t);
 
 class CanTxThread : public chibios_rt::BaseStaticThread<CAN_TX_WA>{
 
 public :
 
-    CanTxThread();
+    CanTxThread(CanardInstance* instance);
 
-    bool send(canFrame_t frame);
+    bool send(const CanardTransferMetadata* const metadata,
+              const size_t                        payload_size,
+              const void* const                   payload);
 
 private:
 
-    void main() override;
+    void main();
 
-    CANTxFrame buildFrame(canFrame_t frameData);
-
-    objects_fifo_t pendingMessagesQueue;
-    CANTxFrame     dataBuffer[TX_QUEUE_LEN];
-    msg_t          msgBuffer[TX_QUEUE_LEN];
+    chibios_rt::EventListener m_listener;
+    chibios_rt::EventSource m_source;
+    CanardInstance* instance;
+    CanardTxQueue  queue;
 
 };
