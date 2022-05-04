@@ -25,5 +25,6 @@ private:
     chibios_rt::EventSource m_source;
     CanardInstance* instance;
     CanardTxQueue  queue;
+    chibios_rt::Mutex m_mutex;
 
 };

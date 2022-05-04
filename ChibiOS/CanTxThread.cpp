@@ -13,7 +13,10 @@ constexpr uint32_t THREAD_SLEEP_US = 30;
 constexpr uint32_t MSG_SEND_EVT    = 1;
 constexpr uint32_t MAX_FRAME_SIZE  = CANARD_MTU_CAN_CLASSIC;
 
-CanTxThread::CanTxThread(CanardInstance* instance):m_source(), m_listener(), instance(instance) {
+CanTxThread::CanTxThread(CanardInstance* instance):m_listener(),
+                                                   m_source(),
+                                                   instance(instance),
+                                                   m_mutex(){
     instance = nullptr;
 }
 
@@ -25,12 +28,16 @@ void CanTxThread::main() {
     m_source.registerMask(&m_listener, MSG_SEND_EVT);
 
     while (!shouldTerminate()) {
+
         eventmask_t event = waitOneEvent(MSG_SEND_EVT);
+
         if(event & MSG_SEND_EVT) {
             const CanardTxQueueItem* item = canardTxPeek(&queue);
+
             while(item != NULL) {
                 CanardTxQueueItem* extractedItem = canardTxPop(&queue, item);
                 uint32_t           size          = item->frame.payload_size;
+
                 do {
                     CANTxFrame frame;
                     frame.ext.EID = item->frame.extended_can_id;
@@ -55,7 +62,7 @@ void CanTxThread::main() {
             }
 
         }
-        chThdSleep(TIME_US2I(THREAD_SLEEP_US));
+        chThdYield();
     }
 }
 
@@ -63,11 +70,12 @@ bool CanTxThread::send(const CanardTransferMetadata* const metadata,
                        const size_t                        payload_size,
                        const void* const                   payload){
     bool success;
+    m_mutex.lock();
     int32_t res = canardTxPush(&queue, instance, chVTGetSystemTime(), metadata, payload_size, payload);
     success = (0 <= res);
     if(success) {
         m_source.broadcastFlags(MSG_SEND_EVT);
     }
-
+    m_mutex.unlock();
     return success;
 }
