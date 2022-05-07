@@ -4,3 +4,6 @@
 [submodule "Cyphal/libcanard"]
 	path = Cyphal/libcanard
 	url = git@github.com:OpenCyphal/libcanard.git
+[submodule "Cyphal/jeroboam_private_cyphal_datatypes"]
+	path = Cyphal/jeroboam_private_cyphal_datatypes
+	url = git@github.com:Association-Jeroboam/jeroboam_private_cyphal_datatypes.git
