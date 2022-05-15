@@ -9,7 +9,7 @@
 //
 // Generator:     nunavut-1.8.0 (serialization was enabled)
 // Source file:   /home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_datatypes/actuators/motion/AdaptativePIDConfig.0.1.uavcan
-// Generated at:  2022-05-15 20:20:49.120204 UTC
+// Generated at:  2022-05-15 21:04:09.646180 UTC
 // Is deprecated: no
 // Fixed port-ID: None
 // Full name:     jeroboam_datatypes.actuators.motion.AdaptativePIDConfig
