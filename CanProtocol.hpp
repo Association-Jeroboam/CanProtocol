@@ -1,9 +1,7 @@
 #pragma once
-#include "ch.hpp"
-#include "hal.h"
 
 enum CanProtocolPortID {
-    ROBOT_CURRENT_STATE_ID = 0,
+    ROBOT_CURRENT_STATE_ID = 1,
     ROBOT_POSE_GOAL_ID,
     ROBOT_TWIST_GOAL_ID,
 
