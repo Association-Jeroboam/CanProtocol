@@ -8,11 +8,11 @@
 // are named with an underscore at the end, like foo_bar_().
 //
 // Generator:     nunavut-1.8.0 (serialization was enabled)
-// Source file:   /home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_private_cyphal_datatypes/actuators/motion/PIDConfig.0.1.uavcan
-// Generated at:  2022-05-15 20:06:56.720632 UTC
+// Source file:   /home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_datatypes/actuators/motion/PIDConfig.0.1.uavcan
+// Generated at:  2022-05-15 20:20:49.144835 UTC
 // Is deprecated: no
 // Fixed port-ID: None
-// Full name:     jeroboam_private_cyphal_datatypes.actuators.motion.PIDConfig
+// Full name:     jeroboam_datatypes.actuators.motion.PIDConfig
 // Version:       0.1
 //
 // Platform
@@ -32,27 +32,27 @@
 //     enable_override_variable_array_capacity:  False
 //     cast_format:  (({type}) {value})
 
-#ifndef JEROBOAM_PRIVATE_CYPHAL_DATATYPES_ACTUATORS_MOTION_PID_CONFIG_0_1_INCLUDED_
-#define JEROBOAM_PRIVATE_CYPHAL_DATATYPES_ACTUATORS_MOTION_PID_CONFIG_0_1_INCLUDED_
+#ifndef JEROBOAM_DATATYPES_ACTUATORS_MOTION_PID_CONFIG_0_1_INCLUDED_
+#define JEROBOAM_DATATYPES_ACTUATORS_MOTION_PID_CONFIG_0_1_INCLUDED_
 
 #include <nunavut/support/serialization.h>
 #include <stdlib.h>
 #include <string.h>
 
 static_assert( NUNAVUT_SUPPORT_LANGUAGE_OPTION_TARGET_ENDIANNESS == 434322821,
-              "/home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_private_cyphal_datatypes/actuators/motion/PIDConfig.0.1.uavcan is trying to use a serialization library that was compiled with "
+              "/home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_datatypes/actuators/motion/PIDConfig.0.1.uavcan is trying to use a serialization library that was compiled with "
               "different language options. This is dangerous and therefore not allowed." );
 static_assert( NUNAVUT_SUPPORT_LANGUAGE_OPTION_OMIT_FLOAT_SERIALIZATION_SUPPORT == 0,
-              "/home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_private_cyphal_datatypes/actuators/motion/PIDConfig.0.1.uavcan is trying to use a serialization library that was compiled with "
+              "/home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_datatypes/actuators/motion/PIDConfig.0.1.uavcan is trying to use a serialization library that was compiled with "
               "different language options. This is dangerous and therefore not allowed." );
 static_assert( NUNAVUT_SUPPORT_LANGUAGE_OPTION_ENABLE_SERIALIZATION_ASSERTS == 0,
-              "/home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_private_cyphal_datatypes/actuators/motion/PIDConfig.0.1.uavcan is trying to use a serialization library that was compiled with "
+              "/home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_datatypes/actuators/motion/PIDConfig.0.1.uavcan is trying to use a serialization library that was compiled with "
               "different language options. This is dangerous and therefore not allowed." );
 static_assert( NUNAVUT_SUPPORT_LANGUAGE_OPTION_ENABLE_OVERRIDE_VARIABLE_ARRAY_CAPACITY == 0,
-              "/home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_private_cyphal_datatypes/actuators/motion/PIDConfig.0.1.uavcan is trying to use a serialization library that was compiled with "
+              "/home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_datatypes/actuators/motion/PIDConfig.0.1.uavcan is trying to use a serialization library that was compiled with "
               "different language options. This is dangerous and therefore not allowed." );
 static_assert( NUNAVUT_SUPPORT_LANGUAGE_OPTION_CAST_FORMAT == 2368206204,
-              "/home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_private_cyphal_datatypes/actuators/motion/PIDConfig.0.1.uavcan is trying to use a serialization library that was compiled with "
+              "/home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_datatypes/actuators/motion/PIDConfig.0.1.uavcan is trying to use a serialization library that was compiled with "
               "different language options. This is dangerous and therefore not allowed." );
 
 #ifdef __cplusplus
@@ -60,10 +60,10 @@ extern "C" {
 #endif
 
 /// This type does not have a fixed port-ID. See https://forum.opencyphal.org/t/choosing-message-and-service-ids/889
-#define jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1_HAS_FIXED_PORT_ID_ false
+#define jeroboam_datatypes_actuators_motion_PIDConfig_0_1_HAS_FIXED_PORT_ID_ false
 
-#define jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1_FULL_NAME_             "jeroboam_private_cyphal_datatypes.actuators.motion.PIDConfig"
-#define jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1_FULL_NAME_AND_VERSION_ "jeroboam_private_cyphal_datatypes.actuators.motion.PIDConfig.0.1"
+#define jeroboam_datatypes_actuators_motion_PIDConfig_0_1_FULL_NAME_             "jeroboam_datatypes.actuators.motion.PIDConfig"
+#define jeroboam_datatypes_actuators_motion_PIDConfig_0_1_FULL_NAME_AND_VERSION_ "jeroboam_datatypes.actuators.motion.PIDConfig.0.1"
 
 /// Extent is the minimum amount of memory required to hold any serialized representation of any compatible
 /// version of the data type; or, on other words, it is the the maximum possible size of received objects of this type.
@@ -72,14 +72,14 @@ extern "C" {
 /// When allocating a serialization (TX) buffer, it is safe to use the size of the largest serialized representation
 /// instead of the extent because it provides a tighter bound of the object size; it is safe because the concrete type
 /// is always known during serialization (unlike deserialization). If not sure, use extent everywhere.
-#define jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1_EXTENT_BYTES_                    16UL
-#define jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1_SERIALIZATION_BUFFER_SIZE_BYTES_ 16UL
-static_assert(jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1_EXTENT_BYTES_ >= jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1_SERIALIZATION_BUFFER_SIZE_BYTES_,
+#define jeroboam_datatypes_actuators_motion_PIDConfig_0_1_EXTENT_BYTES_                    16UL
+#define jeroboam_datatypes_actuators_motion_PIDConfig_0_1_SERIALIZATION_BUFFER_SIZE_BYTES_ 16UL
+static_assert(jeroboam_datatypes_actuators_motion_PIDConfig_0_1_EXTENT_BYTES_ >= jeroboam_datatypes_actuators_motion_PIDConfig_0_1_SERIALIZATION_BUFFER_SIZE_BYTES_,
               "Internal constraint violation");
 
 /// Array metadata for: saturated float32[3] pid
-#define jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1_pid_ARRAY_CAPACITY_           3U
-#define jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1_pid_ARRAY_IS_VARIABLE_LENGTH_ false
+#define jeroboam_datatypes_actuators_motion_PIDConfig_0_1_pid_ARRAY_CAPACITY_           3U
+#define jeroboam_datatypes_actuators_motion_PIDConfig_0_1_pid_ARRAY_IS_VARIABLE_LENGTH_ false
 
 typedef struct
 {
@@ -88,7 +88,7 @@ typedef struct
 
     /// saturated float32 bias
     float bias;
-} jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1;
+} jeroboam_datatypes_actuators_motion_PIDConfig_0_1;
 
 /// Serialize an instance into the provided buffer.
 /// The lifetime of the resulting serialized representation is independent of the original instance.
@@ -98,7 +98,7 @@ typedef struct
 /// @param obj      The object to serialize.
 ///
 /// @param buffer   The destination buffer. There are no alignment requirements.
-///                 @see jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1_SERIALIZATION_BUFFER_SIZE_BYTES_
+///                 @see jeroboam_datatypes_actuators_motion_PIDConfig_0_1_SERIALIZATION_BUFFER_SIZE_BYTES_
 ///
 /// @param inout_buffer_size_bytes  When calling, this is a pointer to the size of the buffer in bytes.
 ///                                 Upon return this value will be updated with the size of the constructed serialized
@@ -106,8 +106,8 @@ typedef struct
 ///                                 layer. In case of error this value is undefined.
 ///
 /// @returns Negative on error, zero on success.
-static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1_serialize_(
-    const jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1* const obj, uint8_t* const buffer,  size_t* const inout_buffer_size_bytes)
+static inline int8_t jeroboam_datatypes_actuators_motion_PIDConfig_0_1_serialize_(
+    const jeroboam_datatypes_actuators_motion_PIDConfig_0_1* const obj, uint8_t* const buffer,  size_t* const inout_buffer_size_bytes)
 {
     if ((obj == NULL) || (buffer == NULL) || (inout_buffer_size_bytes == NULL))
     {
@@ -187,8 +187,8 @@ static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfi
 ///                                 was activated. In case of error this value is undefined.
 ///
 /// @returns Negative on error, zero on success.
-static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1_deserialize_(
-    jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1* const out_obj, const uint8_t* buffer, size_t* const inout_buffer_size_bytes)
+static inline int8_t jeroboam_datatypes_actuators_motion_PIDConfig_0_1_deserialize_(
+    jeroboam_datatypes_actuators_motion_PIDConfig_0_1* const out_obj, const uint8_t* buffer, size_t* const inout_buffer_size_bytes)
 {
     if ((out_obj == NULL) || (inout_buffer_size_bytes == NULL) || ((buffer == NULL) && (0 != *inout_buffer_size_bytes)))
     {
@@ -233,13 +233,13 @@ static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfi
 /// This function intentionally leaves inactive elements uninitialized; for example, members of a variable-length
 /// array beyond its length are left uninitialized; aliased union memory that is not used by the first union field
 /// is left uninitialized, etc. If full zero-initialization is desired, just use memset(&obj, 0, sizeof(obj)).
-static inline void jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1_initialize_(jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1* const out_obj)
+static inline void jeroboam_datatypes_actuators_motion_PIDConfig_0_1_initialize_(jeroboam_datatypes_actuators_motion_PIDConfig_0_1* const out_obj)
 {
     if (out_obj != NULL)
     {
         size_t size_bytes = 0;
         const uint8_t buf = 0;
-        const int8_t err = jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1_deserialize_(out_obj, &buf, &size_bytes);
+        const int8_t err = jeroboam_datatypes_actuators_motion_PIDConfig_0_1_deserialize_(out_obj, &buf, &size_bytes);
 
         (void) err;
     }
@@ -250,4 +250,4 @@ static inline void jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_
 #ifdef __cplusplus
 }
 #endif
-#endif // JEROBOAM_PRIVATE_CYPHAL_DATATYPES_ACTUATORS_MOTION_PID_CONFIG_0_1_INCLUDED_
+#endif // JEROBOAM_DATATYPES_ACTUATORS_MOTION_PID_CONFIG_0_1_INCLUDED_
