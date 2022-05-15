@@ -9,7 +9,7 @@
 //
 // Generator:     nunavut-1.8.0 (serialization was enabled)
 // Source file:   /home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_private_cyphal_datatypes/actuators/motion/MotionConfig.0.1.uavcan
-// Generated at:  2022-05-04 14:17:47.208652 UTC
+// Generated at:  2022-05-15 20:06:56.702330 UTC
 // Is deprecated: no
 // Fixed port-ID: None
 // Full name:     jeroboam_private_cyphal_datatypes.actuators.motion.MotionConfig
@@ -35,12 +35,11 @@
 #ifndef JEROBOAM_PRIVATE_CYPHAL_DATATYPES_ACTUATORS_MOTION_MOTION_CONFIG_0_1_INCLUDED_
 #define JEROBOAM_PRIVATE_CYPHAL_DATATYPES_ACTUATORS_MOTION_MOTION_CONFIG_0_1_INCLUDED_
 
-#include <jeroboam_private_cyphal_datatypes/actuators/motion/AdaptativePIDConfig_0_1.h>
-#include <jeroboam_private_cyphal_datatypes/actuators/motion/PIDConfig_0_1.h>
 #include <nunavut/support/serialization.h>
 #include <uavcan/si/unit/acceleration/Scalar_1_0.h>
 #include <uavcan/si/unit/angular_acceleration/Scalar_1_0.h>
 #include <uavcan/si/unit/angular_velocity/Scalar_1_0.h>
+#include <uavcan/si/unit/length/Scalar_1_0.h>
 #include <uavcan/si/unit/velocity/Scalar_1_0.h>
 #include <stdlib.h>
 
@@ -77,24 +76,21 @@ extern "C" {
 /// When allocating a serialization (TX) buffer, it is safe to use the size of the largest serialized representation
 /// instead of the extent because it provides a tighter bound of the object size; it is safe because the concrete type
 /// is always known during serialization (unlike deserialization). If not sure, use extent everywhere.
-#define jeroboam_private_cyphal_datatypes_actuators_motion_MotionConfig_0_1_EXTENT_BYTES_                    168UL
-#define jeroboam_private_cyphal_datatypes_actuators_motion_MotionConfig_0_1_SERIALIZATION_BUFFER_SIZE_BYTES_ 168UL
+#define jeroboam_private_cyphal_datatypes_actuators_motion_MotionConfig_0_1_EXTENT_BYTES_                    28UL
+#define jeroboam_private_cyphal_datatypes_actuators_motion_MotionConfig_0_1_SERIALIZATION_BUFFER_SIZE_BYTES_ 28UL
 static_assert(jeroboam_private_cyphal_datatypes_actuators_motion_MotionConfig_0_1_EXTENT_BYTES_ >= jeroboam_private_cyphal_datatypes_actuators_motion_MotionConfig_0_1_SERIALIZATION_BUFFER_SIZE_BYTES_,
               "Internal constraint violation");
 
 typedef struct
 {
-    /// jeroboam_private_cyphal_datatypes.actuators.motion.AdaptativePIDConfig.0.1 leftPID
-    jeroboam_private_cyphal_datatypes_actuators_motion_AdaptativePIDConfig_0_1 leftPID;
+    /// uavcan.si.unit.length.Scalar.1.0 wheel_base
+    uavcan_si_unit_length_Scalar_1_0 wheel_base;
 
-    /// jeroboam_private_cyphal_datatypes.actuators.motion.AdaptativePIDConfig.0.1 rightPID
-    jeroboam_private_cyphal_datatypes_actuators_motion_AdaptativePIDConfig_0_1 rightPID;
+    /// uavcan.si.unit.length.Scalar.1.0 left_wheel_radius
+    uavcan_si_unit_length_Scalar_1_0 left_wheel_radius;
 
-    /// jeroboam_private_cyphal_datatypes.actuators.motion.PIDConfig.0.1 linear
-    jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1 linear;
-
-    /// jeroboam_private_cyphal_datatypes.actuators.motion.PIDConfig.0.1 angular
-    jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1 angular;
+    /// uavcan.si.unit.length.Scalar.1.0 right_wheel_radius
+    uavcan_si_unit_length_Scalar_1_0 right_wheel_radius;
 
     /// uavcan.si.unit.velocity.Scalar.1.0 maxLinearSpeed
     uavcan_si_unit_velocity_Scalar_1_0 maxLinearSpeed;
@@ -135,7 +131,7 @@ static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_MotionCo
 
 
     const size_t capacity_bytes = *inout_buffer_size_bytes;
-    if ((8U * (size_t) capacity_bytes) < 1344UL)
+    if ((8U * (size_t) capacity_bytes) < 224UL)
     {
         return -NUNAVUT_ERROR_SERIALIZATION_BUFFER_TOO_SMALL;
     }
@@ -147,10 +143,10 @@ static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_MotionCo
 
 
 
-    {   // jeroboam_private_cyphal_datatypes.actuators.motion.AdaptativePIDConfig.0.1 leftPID
-        size_t _size_bytes0_ = 60UL;  // Nested object (max) size, in bytes.
-        int8_t _err0_ = jeroboam_private_cyphal_datatypes_actuators_motion_AdaptativePIDConfig_0_1_serialize_(
-            &obj->leftPID, &buffer[offset_bits / 8U], &_size_bytes0_);
+    {   // uavcan.si.unit.length.Scalar.1.0 wheel_base
+        size_t _size_bytes0_ = 4UL;  // Nested object (max) size, in bytes.
+        int8_t _err0_ = uavcan_si_unit_length_Scalar_1_0_serialize_(
+            &obj->wheel_base, &buffer[offset_bits / 8U], &_size_bytes0_);
         if (_err0_ < 0)
         {
             return _err0_;
@@ -171,10 +167,10 @@ static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_MotionCo
         offset_bits += _pad0_;
     }
 
-    {   // jeroboam_private_cyphal_datatypes.actuators.motion.AdaptativePIDConfig.0.1 rightPID
-        size_t _size_bytes1_ = 60UL;  // Nested object (max) size, in bytes.
-        int8_t _err2_ = jeroboam_private_cyphal_datatypes_actuators_motion_AdaptativePIDConfig_0_1_serialize_(
-            &obj->rightPID, &buffer[offset_bits / 8U], &_size_bytes1_);
+    {   // uavcan.si.unit.length.Scalar.1.0 left_wheel_radius
+        size_t _size_bytes1_ = 4UL;  // Nested object (max) size, in bytes.
+        int8_t _err2_ = uavcan_si_unit_length_Scalar_1_0_serialize_(
+            &obj->left_wheel_radius, &buffer[offset_bits / 8U], &_size_bytes1_);
         if (_err2_ < 0)
         {
             return _err2_;
@@ -195,10 +191,10 @@ static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_MotionCo
         offset_bits += _pad1_;
     }
 
-    {   // jeroboam_private_cyphal_datatypes.actuators.motion.PIDConfig.0.1 linear
-        size_t _size_bytes2_ = 16UL;  // Nested object (max) size, in bytes.
-        int8_t _err4_ = jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1_serialize_(
-            &obj->linear, &buffer[offset_bits / 8U], &_size_bytes2_);
+    {   // uavcan.si.unit.length.Scalar.1.0 right_wheel_radius
+        size_t _size_bytes2_ = 4UL;  // Nested object (max) size, in bytes.
+        int8_t _err4_ = uavcan_si_unit_length_Scalar_1_0_serialize_(
+            &obj->right_wheel_radius, &buffer[offset_bits / 8U], &_size_bytes2_);
         if (_err4_ < 0)
         {
             return _err4_;
@@ -219,10 +215,10 @@ static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_MotionCo
         offset_bits += _pad2_;
     }
 
-    {   // jeroboam_private_cyphal_datatypes.actuators.motion.PIDConfig.0.1 angular
-        size_t _size_bytes3_ = 16UL;  // Nested object (max) size, in bytes.
-        int8_t _err6_ = jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1_serialize_(
-            &obj->angular, &buffer[offset_bits / 8U], &_size_bytes3_);
+    {   // uavcan.si.unit.velocity.Scalar.1.0 maxLinearSpeed
+        size_t _size_bytes3_ = 4UL;  // Nested object (max) size, in bytes.
+        int8_t _err6_ = uavcan_si_unit_velocity_Scalar_1_0_serialize_(
+            &obj->maxLinearSpeed, &buffer[offset_bits / 8U], &_size_bytes3_);
         if (_err6_ < 0)
         {
             return _err6_;
@@ -243,10 +239,10 @@ static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_MotionCo
         offset_bits += _pad3_;
     }
 
-    {   // uavcan.si.unit.velocity.Scalar.1.0 maxLinearSpeed
+    {   // uavcan.si.unit.angular_velocity.Scalar.1.0 maxAngularSpeed
         size_t _size_bytes4_ = 4UL;  // Nested object (max) size, in bytes.
-        int8_t _err8_ = uavcan_si_unit_velocity_Scalar_1_0_serialize_(
-            &obj->maxLinearSpeed, &buffer[offset_bits / 8U], &_size_bytes4_);
+        int8_t _err8_ = uavcan_si_unit_angular_velocity_Scalar_1_0_serialize_(
+            &obj->maxAngularSpeed, &buffer[offset_bits / 8U], &_size_bytes4_);
         if (_err8_ < 0)
         {
             return _err8_;
@@ -267,10 +263,10 @@ static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_MotionCo
         offset_bits += _pad4_;
     }
 
-    {   // uavcan.si.unit.angular_velocity.Scalar.1.0 maxAngularSpeed
+    {   // uavcan.si.unit.acceleration.Scalar.1.0 maxLinearAccl
         size_t _size_bytes5_ = 4UL;  // Nested object (max) size, in bytes.
-        int8_t _err10_ = uavcan_si_unit_angular_velocity_Scalar_1_0_serialize_(
-            &obj->maxAngularSpeed, &buffer[offset_bits / 8U], &_size_bytes5_);
+        int8_t _err10_ = uavcan_si_unit_acceleration_Scalar_1_0_serialize_(
+            &obj->maxLinearAccl, &buffer[offset_bits / 8U], &_size_bytes5_);
         if (_err10_ < 0)
         {
             return _err10_;
@@ -291,10 +287,10 @@ static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_MotionCo
         offset_bits += _pad5_;
     }
 
-    {   // uavcan.si.unit.acceleration.Scalar.1.0 maxLinearAccl
+    {   // uavcan.si.unit.angular_acceleration.Scalar.1.0 maxAngularAccl
         size_t _size_bytes6_ = 4UL;  // Nested object (max) size, in bytes.
-        int8_t _err12_ = uavcan_si_unit_acceleration_Scalar_1_0_serialize_(
-            &obj->maxLinearAccl, &buffer[offset_bits / 8U], &_size_bytes6_);
+        int8_t _err12_ = uavcan_si_unit_angular_acceleration_Scalar_1_0_serialize_(
+            &obj->maxAngularAccl, &buffer[offset_bits / 8U], &_size_bytes6_);
         if (_err12_ < 0)
         {
             return _err12_;
@@ -313,30 +309,6 @@ static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_MotionCo
             return _err13_;
         }
         offset_bits += _pad6_;
-    }
-
-    {   // uavcan.si.unit.angular_acceleration.Scalar.1.0 maxAngularAccl
-        size_t _size_bytes7_ = 4UL;  // Nested object (max) size, in bytes.
-        int8_t _err14_ = uavcan_si_unit_angular_acceleration_Scalar_1_0_serialize_(
-            &obj->maxAngularAccl, &buffer[offset_bits / 8U], &_size_bytes7_);
-        if (_err14_ < 0)
-        {
-            return _err14_;
-        }
-        // It is assumed that we know the exact type of the serialized entity, hence we expect the size to match.
-        offset_bits += _size_bytes7_ * 8U;  // Advance by the size of the nested object.
-    }
-
-
-    if (offset_bits % 8U != 0U)  // Pad to 8 bits. TODO: Eliminate redundant padding checks.
-    {
-        const uint8_t _pad7_ = (uint8_t)(8U - offset_bits % 8U);
-        const int8_t _err15_ = nunavutSetUxx(&buffer[0], capacity_bytes, offset_bits, 0U, _pad7_);  // Optimize?
-        if (_err15_ < 0)
-        {
-            return _err15_;
-        }
-        offset_bits += _pad7_;
     }
     // It is assumed that we know the exact type of the serialized entity, hence we expect the size to match.
 
@@ -388,14 +360,29 @@ static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_MotionCo
 
 
 
-    // jeroboam_private_cyphal_datatypes.actuators.motion.AdaptativePIDConfig.0.1 leftPID
+    // uavcan.si.unit.length.Scalar.1.0 wheel_base
+    {
+        size_t _size_bytes7_ = (size_t)(capacity_bytes - nunavutChooseMin((offset_bits / 8U), capacity_bytes));
+        const int8_t _err14_ = uavcan_si_unit_length_Scalar_1_0_deserialize_(
+            &out_obj->wheel_base, &buffer[offset_bits / 8U], &_size_bytes7_);
+        if (_err14_ < 0)
+        {
+            return _err14_;
+        }
+        offset_bits += _size_bytes7_ * 8U;  // Advance by the size of the nested serialized representation.
+    }
+
+
+    offset_bits = (offset_bits + 7U) & ~(size_t) 7U;  // Align on 8 bits.
+
+    // uavcan.si.unit.length.Scalar.1.0 left_wheel_radius
     {
         size_t _size_bytes8_ = (size_t)(capacity_bytes - nunavutChooseMin((offset_bits / 8U), capacity_bytes));
-        const int8_t _err16_ = jeroboam_private_cyphal_datatypes_actuators_motion_AdaptativePIDConfig_0_1_deserialize_(
-            &out_obj->leftPID, &buffer[offset_bits / 8U], &_size_bytes8_);
-        if (_err16_ < 0)
+        const int8_t _err15_ = uavcan_si_unit_length_Scalar_1_0_deserialize_(
+            &out_obj->left_wheel_radius, &buffer[offset_bits / 8U], &_size_bytes8_);
+        if (_err15_ < 0)
         {
-            return _err16_;
+            return _err15_;
         }
         offset_bits += _size_bytes8_ * 8U;  // Advance by the size of the nested serialized representation.
     }
@@ -403,14 +390,14 @@ static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_MotionCo
 
     offset_bits = (offset_bits + 7U) & ~(size_t) 7U;  // Align on 8 bits.
 
-    // jeroboam_private_cyphal_datatypes.actuators.motion.AdaptativePIDConfig.0.1 rightPID
+    // uavcan.si.unit.length.Scalar.1.0 right_wheel_radius
     {
         size_t _size_bytes9_ = (size_t)(capacity_bytes - nunavutChooseMin((offset_bits / 8U), capacity_bytes));
-        const int8_t _err17_ = jeroboam_private_cyphal_datatypes_actuators_motion_AdaptativePIDConfig_0_1_deserialize_(
-            &out_obj->rightPID, &buffer[offset_bits / 8U], &_size_bytes9_);
-        if (_err17_ < 0)
+        const int8_t _err16_ = uavcan_si_unit_length_Scalar_1_0_deserialize_(
+            &out_obj->right_wheel_radius, &buffer[offset_bits / 8U], &_size_bytes9_);
+        if (_err16_ < 0)
         {
-            return _err17_;
+            return _err16_;
         }
         offset_bits += _size_bytes9_ * 8U;  // Advance by the size of the nested serialized representation.
     }
@@ -418,14 +405,14 @@ static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_MotionCo
 
     offset_bits = (offset_bits + 7U) & ~(size_t) 7U;  // Align on 8 bits.
 
-    // jeroboam_private_cyphal_datatypes.actuators.motion.PIDConfig.0.1 linear
+    // uavcan.si.unit.velocity.Scalar.1.0 maxLinearSpeed
     {
         size_t _size_bytes10_ = (size_t)(capacity_bytes - nunavutChooseMin((offset_bits / 8U), capacity_bytes));
-        const int8_t _err18_ = jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1_deserialize_(
-            &out_obj->linear, &buffer[offset_bits / 8U], &_size_bytes10_);
-        if (_err18_ < 0)
+        const int8_t _err17_ = uavcan_si_unit_velocity_Scalar_1_0_deserialize_(
+            &out_obj->maxLinearSpeed, &buffer[offset_bits / 8U], &_size_bytes10_);
+        if (_err17_ < 0)
         {
-            return _err18_;
+            return _err17_;
         }
         offset_bits += _size_bytes10_ * 8U;  // Advance by the size of the nested serialized representation.
     }
@@ -433,14 +420,14 @@ static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_MotionCo
 
     offset_bits = (offset_bits + 7U) & ~(size_t) 7U;  // Align on 8 bits.
 
-    // jeroboam_private_cyphal_datatypes.actuators.motion.PIDConfig.0.1 angular
+    // uavcan.si.unit.angular_velocity.Scalar.1.0 maxAngularSpeed
     {
         size_t _size_bytes11_ = (size_t)(capacity_bytes - nunavutChooseMin((offset_bits / 8U), capacity_bytes));
-        const int8_t _err19_ = jeroboam_private_cyphal_datatypes_actuators_motion_PIDConfig_0_1_deserialize_(
-            &out_obj->angular, &buffer[offset_bits / 8U], &_size_bytes11_);
-        if (_err19_ < 0)
+        const int8_t _err18_ = uavcan_si_unit_angular_velocity_Scalar_1_0_deserialize_(
+            &out_obj->maxAngularSpeed, &buffer[offset_bits / 8U], &_size_bytes11_);
+        if (_err18_ < 0)
         {
-            return _err19_;
+            return _err18_;
         }
         offset_bits += _size_bytes11_ * 8U;  // Advance by the size of the nested serialized representation.
     }
@@ -448,14 +435,14 @@ static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_MotionCo
 
     offset_bits = (offset_bits + 7U) & ~(size_t) 7U;  // Align on 8 bits.
 
-    // uavcan.si.unit.velocity.Scalar.1.0 maxLinearSpeed
+    // uavcan.si.unit.acceleration.Scalar.1.0 maxLinearAccl
     {
         size_t _size_bytes12_ = (size_t)(capacity_bytes - nunavutChooseMin((offset_bits / 8U), capacity_bytes));
-        const int8_t _err20_ = uavcan_si_unit_velocity_Scalar_1_0_deserialize_(
-            &out_obj->maxLinearSpeed, &buffer[offset_bits / 8U], &_size_bytes12_);
-        if (_err20_ < 0)
+        const int8_t _err19_ = uavcan_si_unit_acceleration_Scalar_1_0_deserialize_(
+            &out_obj->maxLinearAccl, &buffer[offset_bits / 8U], &_size_bytes12_);
+        if (_err19_ < 0)
         {
-            return _err20_;
+            return _err19_;
         }
         offset_bits += _size_bytes12_ * 8U;  // Advance by the size of the nested serialized representation.
     }
@@ -463,46 +450,16 @@ static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_MotionCo
 
     offset_bits = (offset_bits + 7U) & ~(size_t) 7U;  // Align on 8 bits.
 
-    // uavcan.si.unit.angular_velocity.Scalar.1.0 maxAngularSpeed
-    {
-        size_t _size_bytes13_ = (size_t)(capacity_bytes - nunavutChooseMin((offset_bits / 8U), capacity_bytes));
-        const int8_t _err21_ = uavcan_si_unit_angular_velocity_Scalar_1_0_deserialize_(
-            &out_obj->maxAngularSpeed, &buffer[offset_bits / 8U], &_size_bytes13_);
-        if (_err21_ < 0)
-        {
-            return _err21_;
-        }
-        offset_bits += _size_bytes13_ * 8U;  // Advance by the size of the nested serialized representation.
-    }
-
-
-    offset_bits = (offset_bits + 7U) & ~(size_t) 7U;  // Align on 8 bits.
-
-    // uavcan.si.unit.acceleration.Scalar.1.0 maxLinearAccl
-    {
-        size_t _size_bytes14_ = (size_t)(capacity_bytes - nunavutChooseMin((offset_bits / 8U), capacity_bytes));
-        const int8_t _err22_ = uavcan_si_unit_acceleration_Scalar_1_0_deserialize_(
-            &out_obj->maxLinearAccl, &buffer[offset_bits / 8U], &_size_bytes14_);
-        if (_err22_ < 0)
-        {
-            return _err22_;
-        }
-        offset_bits += _size_bytes14_ * 8U;  // Advance by the size of the nested serialized representation.
-    }
-
-
-    offset_bits = (offset_bits + 7U) & ~(size_t) 7U;  // Align on 8 bits.
-
     // uavcan.si.unit.angular_acceleration.Scalar.1.0 maxAngularAccl
     {
-        size_t _size_bytes15_ = (size_t)(capacity_bytes - nunavutChooseMin((offset_bits / 8U), capacity_bytes));
-        const int8_t _err23_ = uavcan_si_unit_angular_acceleration_Scalar_1_0_deserialize_(
-            &out_obj->maxAngularAccl, &buffer[offset_bits / 8U], &_size_bytes15_);
-        if (_err23_ < 0)
+        size_t _size_bytes13_ = (size_t)(capacity_bytes - nunavutChooseMin((offset_bits / 8U), capacity_bytes));
+        const int8_t _err20_ = uavcan_si_unit_angular_acceleration_Scalar_1_0_deserialize_(
+            &out_obj->maxAngularAccl, &buffer[offset_bits / 8U], &_size_bytes13_);
+        if (_err20_ < 0)
         {
-            return _err23_;
+            return _err20_;
         }
-        offset_bits += _size_bytes15_ * 8U;  // Advance by the size of the nested serialized representation.
+        offset_bits += _size_bytes13_ * 8U;  // Advance by the size of the nested serialized representation.
     }
 
 

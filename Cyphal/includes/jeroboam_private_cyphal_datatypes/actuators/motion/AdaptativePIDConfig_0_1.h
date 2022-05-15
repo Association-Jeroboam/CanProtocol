@@ -9,7 +9,7 @@
 //
 // Generator:     nunavut-1.8.0 (serialization was enabled)
 // Source file:   /home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_private_cyphal_datatypes/actuators/motion/AdaptativePIDConfig.0.1.uavcan
-// Generated at:  2022-05-04 14:17:47.201392 UTC
+// Generated at:  2022-05-15 20:06:56.687834 UTC
 // Is deprecated: no
 // Fixed port-ID: None
 // Full name:     jeroboam_private_cyphal_datatypes.actuators.motion.AdaptativePIDConfig
@@ -37,6 +37,7 @@
 
 #include <jeroboam_private_cyphal_datatypes/actuators/motion/PIDConfig_0_1.h>
 #include <nunavut/support/serialization.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -73,8 +74,8 @@ extern "C" {
 /// When allocating a serialization (TX) buffer, it is safe to use the size of the largest serialized representation
 /// instead of the extent because it provides a tighter bound of the object size; it is safe because the concrete type
 /// is always known during serialization (unlike deserialization). If not sure, use extent everywhere.
-#define jeroboam_private_cyphal_datatypes_actuators_motion_AdaptativePIDConfig_0_1_EXTENT_BYTES_                    60UL
-#define jeroboam_private_cyphal_datatypes_actuators_motion_AdaptativePIDConfig_0_1_SERIALIZATION_BUFFER_SIZE_BYTES_ 60UL
+#define jeroboam_private_cyphal_datatypes_actuators_motion_AdaptativePIDConfig_0_1_EXTENT_BYTES_                    61UL
+#define jeroboam_private_cyphal_datatypes_actuators_motion_AdaptativePIDConfig_0_1_SERIALIZATION_BUFFER_SIZE_BYTES_ 61UL
 static_assert(jeroboam_private_cyphal_datatypes_actuators_motion_AdaptativePIDConfig_0_1_EXTENT_BYTES_ >= jeroboam_private_cyphal_datatypes_actuators_motion_AdaptativePIDConfig_0_1_SERIALIZATION_BUFFER_SIZE_BYTES_,
               "Internal constraint violation");
 
@@ -92,6 +93,9 @@ typedef struct
 
     /// saturated float32[3] thresholds
     float thresholds[3];
+
+    /// saturated uint8 ID
+    uint8_t ID;
 } jeroboam_private_cyphal_datatypes_actuators_motion_AdaptativePIDConfig_0_1;
 
 /// Serialize an instance into the provided buffer.
@@ -120,7 +124,7 @@ static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_Adaptati
 
 
     const size_t capacity_bytes = *inout_buffer_size_bytes;
-    if ((8U * (size_t) capacity_bytes) < 480UL)
+    if ((8U * (size_t) capacity_bytes) < 488UL)
     {
         return -NUNAVUT_ERROR_SERIALIZATION_BUFFER_TOO_SMALL;
     }
@@ -159,6 +163,15 @@ static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_Adaptati
         // Optimization prospect: this item is aligned at the byte boundary, so it is possible to use memmove().
         nunavutCopyBits(&buffer[0], offset_bits, 3UL * 32UL, &obj->thresholds[0], 0U);
         offset_bits += 3UL * 32UL;
+    }
+
+
+
+
+    {   // saturated uint8 ID
+        // Saturation code not emitted -- native representation matches the serialized representation.
+        buffer[offset_bits / 8U] = (uint8_t)(obj->ID);  // C std, 6.3.1.3 Signed and unsigned integers
+        offset_bits += 8U;
     }
 
 
@@ -244,6 +257,20 @@ static inline int8_t jeroboam_private_cyphal_datatypes_actuators_motion_Adaptati
     static_assert(NUNAVUT_PLATFORM_IEEE754_FLOAT, "Native IEEE754 binary32 required. TODO: relax constraint");
     nunavutGetBits(&out_obj->thresholds[0], &buffer[0], capacity_bytes, offset_bits, 3UL * 32U);
     offset_bits += 3UL * 32U;
+
+
+
+
+    // saturated uint8 ID
+    if ((offset_bits + 8U) <= capacity_bits)
+    {
+        out_obj->ID = buffer[offset_bits / 8U] & 255U;
+    }
+    else
+    {
+        out_obj->ID = 0U;
+    }
+    offset_bits += 8U;
 
 
     offset_bits = (offset_bits + 7U) & ~(size_t) 7U;  // Align on 8 bits.

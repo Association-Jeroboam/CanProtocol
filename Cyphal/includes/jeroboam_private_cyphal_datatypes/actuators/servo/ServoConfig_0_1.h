@@ -9,7 +9,7 @@
 //
 // Generator:     nunavut-1.8.0 (serialization was enabled)
 // Source file:   /home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_private_cyphal_datatypes/actuators/servo/ServoConfig.0.1.uavcan
-// Generated at:  2022-05-04 14:17:46.867138 UTC
+// Generated at:  2022-05-15 20:06:56.736848 UTC
 // Is deprecated: no
 // Fixed port-ID: None
 // Full name:     jeroboam_private_cyphal_datatypes.actuators.servo.ServoConfig
