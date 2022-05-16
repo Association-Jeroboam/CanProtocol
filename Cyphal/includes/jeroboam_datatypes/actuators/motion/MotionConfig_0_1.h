@@ -8,8 +8,8 @@
 // are named with an underscore at the end, like foo_bar_().
 //
 // Generator:     nunavut-1.8.0 (serialization was enabled)
-// Source file:   /home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_datatypes/actuators/motion/MotionConfig.0.1.uavcan
-// Generated at:  2022-05-15 21:04:09.798101 UTC
+// Source file:   /home/thomas/git/ActionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_datatypes/actuators/motion/MotionConfig.0.1.uavcan
+// Generated at:  2022-05-16 20:53:59.132026 UTC
 // Is deprecated: no
 // Fixed port-ID: None
 // Full name:     jeroboam_datatypes.actuators.motion.MotionConfig
@@ -23,7 +23,7 @@
 //     python_compiler:  GCC 7.5.0
 //     python_revision:
 //     python_xoptions:  {}
-//     runtime_platform:  Linux-5.4.0-109-generic-x86_64-with-glibc2.27
+//     runtime_platform:  Linux-5.4.0-110-generic-x86_64-with-glibc2.27
 //
 // Language Options
 //     target_endianness:  little
@@ -44,19 +44,19 @@
 #include <stdlib.h>
 
 static_assert( NUNAVUT_SUPPORT_LANGUAGE_OPTION_TARGET_ENDIANNESS == 434322821,
-              "/home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_datatypes/actuators/motion/MotionConfig.0.1.uavcan is trying to use a serialization library that was compiled with "
+              "/home/thomas/git/ActionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_datatypes/actuators/motion/MotionConfig.0.1.uavcan is trying to use a serialization library that was compiled with "
               "different language options. This is dangerous and therefore not allowed." );
 static_assert( NUNAVUT_SUPPORT_LANGUAGE_OPTION_OMIT_FLOAT_SERIALIZATION_SUPPORT == 0,
-              "/home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_datatypes/actuators/motion/MotionConfig.0.1.uavcan is trying to use a serialization library that was compiled with "
+              "/home/thomas/git/ActionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_datatypes/actuators/motion/MotionConfig.0.1.uavcan is trying to use a serialization library that was compiled with "
               "different language options. This is dangerous and therefore not allowed." );
 static_assert( NUNAVUT_SUPPORT_LANGUAGE_OPTION_ENABLE_SERIALIZATION_ASSERTS == 0,
-              "/home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_datatypes/actuators/motion/MotionConfig.0.1.uavcan is trying to use a serialization library that was compiled with "
+              "/home/thomas/git/ActionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_datatypes/actuators/motion/MotionConfig.0.1.uavcan is trying to use a serialization library that was compiled with "
               "different language options. This is dangerous and therefore not allowed." );
 static_assert( NUNAVUT_SUPPORT_LANGUAGE_OPTION_ENABLE_OVERRIDE_VARIABLE_ARRAY_CAPACITY == 0,
-              "/home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_datatypes/actuators/motion/MotionConfig.0.1.uavcan is trying to use a serialization library that was compiled with "
+              "/home/thomas/git/ActionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_datatypes/actuators/motion/MotionConfig.0.1.uavcan is trying to use a serialization library that was compiled with "
               "different language options. This is dangerous and therefore not allowed." );
 static_assert( NUNAVUT_SUPPORT_LANGUAGE_OPTION_CAST_FORMAT == 2368206204,
-              "/home/thomas/git/MotionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_datatypes/actuators/motion/MotionConfig.0.1.uavcan is trying to use a serialization library that was compiled with "
+              "/home/thomas/git/ActionBoardFirmware/firmware/libs/CanProtocol/Cyphal/jeroboam_datatypes/actuators/motion/MotionConfig.0.1.uavcan is trying to use a serialization library that was compiled with "
               "different language options. This is dangerous and therefore not allowed." );
 
 #ifdef __cplusplus
