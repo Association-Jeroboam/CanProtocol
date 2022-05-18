@@ -49,3 +49,13 @@ enum CanProtocolSliderID {
     CAN_PROTOCOL_SLIDER_LEFT,
     CAN_PROTOCOL_SLIDER_RIGHT,
 };
+
+enum CanProtocolPumpID {
+    CAN_PROTOCOL_PUMP_LEFT_ID,
+    CAN_PROTOCOL_PUMP_RIGHT_ID,
+};
+
+enum CanProtocolValveID {
+    CAN_PROTOCOL_VALVE_LEFT_ID,
+    CAN_PROTOCOL_VALVE_RIGHT_ID,
+};
