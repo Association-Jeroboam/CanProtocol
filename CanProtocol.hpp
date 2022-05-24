@@ -26,6 +26,8 @@ enum CanProtocolPortID {
     ACTION_SERVO_CURRENT_ANGLE_ID = 20,
     ACTION_SERVO_SET_PLIERS_ID    = 21,
 
+    EMERGENCY_STOP_ID             = 30,
+
 };
 
 enum CanProtocolNodeID {
