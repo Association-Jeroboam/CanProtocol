@@ -4,7 +4,10 @@
 #include "Logging.hpp"
 #include "Heartbeat_1_0.h"
 
-CanRxThread::CanRxThread(CanardInstance* instance):m_listenersCount(0), m_subCnt(0), m_instance(instance){}
+CanRxThread::CanRxThread(CanardInstance* instance):
+m_listenersCount(0),
+m_instance(instance),
+m_subCnt(0){}
 
 void CanRxThread::main() {
     Logging::println("[CAN RX] Thread start");
