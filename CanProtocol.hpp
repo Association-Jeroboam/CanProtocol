@@ -25,6 +25,7 @@ enum CanProtocolPortID {
     ACTION_VALVE_STATUS_ID        = 19,
     ACTION_SERVO_CURRENT_ANGLE_ID = 20,
     ACTION_SERVO_SET_PLIERS_ID    = 21,
+    ACTION_RESISTANCE_MEAS_ID     = 22,
 
     EMERGENCY_STOP_ID             = 30,
 
