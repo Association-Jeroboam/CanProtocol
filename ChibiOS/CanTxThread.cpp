@@ -72,10 +72,10 @@ bool CanTxThread::send(const CanardTransferMetadata* const metadata,
     bool success;
     m_mutex.lock();
     int32_t res = canardTxPush(&queue, instance, chVTGetSystemTime(), metadata, payload_size, payload);
+    m_mutex.unlock();
     success = (0 <= res);
     if(success) {
         m_source.broadcastFlags(MSG_SEND_EVT);
     }
-    m_mutex.unlock();
     return success;
 }
