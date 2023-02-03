@@ -39,6 +39,7 @@ enum CanProtocolPortID {
     ACTION_SERVO_SET_PLIERS_ID    = 411,
     ACTION_RESISTANCE_MEAS_ID     = 412,
     ACTION_SERVO_REBOOT_ID        = 413,
+    ACTION_SERVO_GENERIC_ID       = 414,
 
     EMERGENCY_STOP_ID             = 501,
 
