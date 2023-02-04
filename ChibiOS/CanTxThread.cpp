@@ -76,6 +76,8 @@ bool CanTxThread::send(const CanardTransferMetadata* const metadata,
     success = (0 <= res);
     if(success) {
         m_source.broadcastFlags(MSG_SEND_EVT);
+    } else {
+        Logging::println("[CAN TX] send fail with error %li", res);
     }
     return success;
 }
