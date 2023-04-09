@@ -53,6 +53,10 @@ void CanTxThread::main() {
                     memcpy(&frame.data8, item->frame.payload, frame.DLC);
                     msg_t msg = canTransmitTimeout(&CAN_DRIVER, CAN_ANY_MAILBOX, &frame, TIME_MS2I(TIMEOUT_MS));
                     if (msg != MSG_OK) {
+                        chSysLock();
+                        canStop(&CAN_DRIVER);
+                        canStart(&CAN_DRIVER, &canConfig);
+                        chSysUnlock();
                         Logging::println("[CAN TX] fail %lu", msg);
                     }
                 } while (size > 0);
