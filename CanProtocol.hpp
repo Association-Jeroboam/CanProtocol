@@ -41,6 +41,7 @@ enum CanProtocolPortID {
     ACTION_SERVO_REBOOT_ID          = 413,
     ACTION_SERVO_GENERIC_COMMAND_ID = 414,
     ACTION_SERVO_GENERIC_READ_ID    = 415,
+    ACTION_TURBINE_CMD_ID           = 416,
 
     EMERGENCY_STOP_ID               = 501,
 
@@ -87,6 +88,12 @@ enum CanProtocolPumpID {
 enum CanProtocolValveID {
     CAN_PROTOCOL_VALVE_LEFT_ID,
     CAN_PROTOCOL_VALVE_RIGHT_ID,
+};
+
+enum CanProtocolTurbineSpeed {
+    CAN_PROTOCOL_TURBINE_SPEED_STOPPED,
+    CAN_PROTOCOL_TURBINE_SPEED_SLOW,
+    CAN_PROTOCOL_TURBINE_SPEED_FAST
 };
 
 enum CanProtocolPIDID{
