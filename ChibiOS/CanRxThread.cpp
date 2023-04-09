@@ -80,6 +80,7 @@ bool CanRxThread::subscribe(CanListener *listener,
         //TODO
     }
     m_listenerSubCnt[listenerIdx]+=1;
+    // Sub optimal
     m_subLUT[listenerIdx][m_listenerSubCnt[listenerIdx] - 1] = &m_sub[m_subCnt];
 
     bool res = subRet >= 0;
@@ -93,8 +94,8 @@ void CanRxThread::notifyListeners(CanardRxSubscription * sub, CanardRxTransfer* 
     for (uint8_t listenerIdx = 0; listenerIdx < m_listenersCount; listenerIdx++) {
         CanListener * listener = m_listeners[listenerIdx];
         for (uint8_t subIdx = 0; subIdx < m_listenerSubCnt[listenerIdx]; subIdx++) {
-            if(m_subLUT[listenerIdx][subIdx] == sub) {
-                listener->processCanMsg(transfer);
+            if(m_subLUT[listenerIdx][subIdx]->port_id == sub->port_id) {
+                if(listener) listener->processCanMsg(transfer);
             }
         }
     }
