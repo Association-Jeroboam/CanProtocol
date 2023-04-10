@@ -35,7 +35,9 @@ void CanTxThread::main() {
             const CanardTxQueueItem* item = canardTxPeek(&queue);
 
             while(item != NULL) {
+                m_mutex.lock();
                 CanardTxQueueItem* extractedItem = canardTxPop(&queue, item);
+                m_mutex.unlock();
                 uint32_t           size          = item->frame.payload_size;
 
                 do {
