@@ -43,8 +43,6 @@ enum CanProtocolPortID {
     ACTION_SERVO_GENERIC_READ_ID    = 415,
     ACTION_TURBINE_CMD_ID           = 416,
 
-    EMERGENCY_STOP_ID               = 501,
-
 };
 
 enum CanProtocolNodeID {
